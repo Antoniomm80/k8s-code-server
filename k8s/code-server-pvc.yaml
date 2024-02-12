@@ -4,7 +4,8 @@ metadata:
   name: code-server-pvc
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
+  storageClassName: nfs
   resources:
     requests:
       storage: 4Gi

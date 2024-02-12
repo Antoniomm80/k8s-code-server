@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-server
+  namespace: myapps
+  labels:
+    app: code-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: code-server
+  template:
+    metadata:
+      labels:
+        app: code-server
+    spec:
+      containers:
+        - name: code-server
+          image: 192.168.4.30:5000/code-server:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DEFAULT_WORKSPACE
+              value: /root/.config/code-server/workspace
+          volumeMounts:
+            - name: code-server-data
+              mountPath: /root/.config/code-server
+          resources:
+            requests:
+              cpu: 2000m
+              memory: 3Gi
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: code-server-data
+          persistentVolumeClaim:
+            claimName: code-server-pvc

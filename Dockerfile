@@ -7,6 +7,8 @@ echo "Installing Python..."
 apk add alpine-sdk bash libstdc++ libc6-compat krb5-dev
 echo "Installing Python..."
 apk add --no-cache python3 py3-pip
+echo "Installing Git..."
+apk add git
 echo "Setting python npm config ..."
 npm config set python python3
 echo "Installing Code Server..."
