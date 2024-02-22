@@ -1,6 +1,6 @@
 # K8s code Server
 
-Humble sparse time project for running code server in k3s multi node cluster on raspberry pi 4
+Humble spare time project for running code server in k3s multi node cluster on raspberry pi 4
 
 ## Docker file
 
