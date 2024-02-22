@@ -6,6 +6,7 @@ metadata:
   labels:
     app: code-server
 spec:
+
   replicas: 1
   selector:
     matchLabels:
@@ -15,6 +16,8 @@ spec:
       labels:
         app: code-server
     spec:
+      nodeSelector:
+        nodetype: agent
       containers:
         - name: code-server
           image: 192.168.4.30:5000/code-server:latest
@@ -27,8 +30,8 @@ spec:
               mountPath: /home/devpi
           resources:
             requests:
-              cpu: 2000m
-              memory: 3Gi
+              cpu: 1500m
+              memory: 1.5Gi
           ports:
             - containerPort: 8080
       volumes:
